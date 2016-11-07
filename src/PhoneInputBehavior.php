@@ -1,6 +1,6 @@
 <?php
 
-namespace borales\extensions\phoneInput;
+namespace frontend\modules\phoneinput;
 
 use libphonenumber\NumberParseException;
 use libphonenumber\PhoneNumberFormat;
@@ -33,6 +33,7 @@ class PhoneInputBehavior extends AttributeBehavior
             ];
         }
     }
+
 
     /**
      * @return array
