@@ -1,5 +1,5 @@
 {
-    "name": "borales/yii2-phone-input",
+    "name": "mobilejazz-contrib/yii2-phone-input",
     "version": "dev-extended",
     "description": "Yii2 International telephone numbers - Asset Bundle, Behavior, Validator, Widget",
     "keywords": [
