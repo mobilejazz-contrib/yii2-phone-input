@@ -16,7 +16,7 @@ class PhoneInput extends InputWidget
     /** @var string HTML tag type of the widget input ("tel" by default) */
     public $htmlTagType = 'tel';
     /** @var array Default widget options of the HTML tag */
-    public $defaultOptions = ['autocomplete' => "off"];
+    public $defaultOptions = ['autocomplete' => "off",'class'=>'form-control'];
     /** @var array Options of the JS-widget */
     public $jsOptions = [];
 
@@ -35,9 +35,28 @@ class PhoneInput extends InputWidget
     public function run()
     {
         $options = ArrayHelper::merge($this->defaultOptions, $this->options);
-        if ($this->hasModel()) {
-            return Html::activeInput($this->htmlTagType, $this->model, $this->attribute, $options);
+        $input   = '';
+        if ($this->hasModel())
+        {
+            $input = Html::activeInput($this->htmlTagType, $this->model, $this->attribute, $options);
         }
-        return Html::input($this->htmlTagType, $this->name, $this->value, $options);
+        else
+        {
+            $input = Html::input($this->htmlTagType, $this->name, $this->value, $options);
+        }
+
+        $prepend = ArrayHelper::remove($options, 'prepend', null);
+        $append  = ArrayHelper::remove($options, 'append', null);
+
+        if ($prepend)
+        {
+            $input = $prepend . $input;
+        }
+        if ($append)
+        {
+            $input = $input . $append;
+        }
+
+        return $input;
     }
 }
