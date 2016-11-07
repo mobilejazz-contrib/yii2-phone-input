@@ -1,6 +1,6 @@
 <?php
 
-namespace frontend\modules\phoneinput;
+namespace borales\extensions\phoneInput;
 
 use libphonenumber\NumberParseException;
 use libphonenumber\PhoneNumberFormat;
